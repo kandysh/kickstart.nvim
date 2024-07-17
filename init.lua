@@ -861,7 +861,7 @@ require('lazy').setup({
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      require('mini.surround').setup { header = 'NEOVIM' }
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -877,7 +877,13 @@ require('lazy').setup({
       statusline.section_location = function()
         return '%2l:%-2v'
       end
-
+      local starter = require 'mini.starter'
+      starter.setup {
+        content_hooks = {
+          starter.gen_hook.adding_bullet '- ',
+          starter.gen_hook.aligning('center', 'center'),
+        },
+      }
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
