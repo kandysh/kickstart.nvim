@@ -9,4 +9,15 @@ return {
     opts = {},
   },
   require 'kickstart.plugins.neo-tree',
+  {
+    'vyfor/cord.nvim',
+    build = '.\\build',
+    event = 'VeryLazy',
+    opts = {
+      display = {
+        show_repository = false, -- Display 'View repository' button linked to repository url, if any
+        show_cursor_position = true, -- Display line and column number of cursor's position
+      },
+    },
+  },
 }
